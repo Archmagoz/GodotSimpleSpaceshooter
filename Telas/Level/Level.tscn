@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://ccdv4hdpt3ild"]
+
+[ext_resource type="Script" uid="uid://bvkpy707ynjhu" path="res://Telas/Level/Level.gd" id="1_s6l7v"]
+[ext_resource type="Texture2D" uid="uid://bi1vk68ngreyx" path="res://Telas/Level/Background.jpg" id="2_byypb"]
+[ext_resource type="PackedScene" uid="uid://b46lms57gcssb" path="res://Entities/Player/Player.tscn" id="3_gb4ee"]
+[ext_resource type="PackedScene" uid="uid://bmckykfxqvjen" path="res://Entities/Enemy/Ufo/Ufo.tscn" id="4_wxqmp"]
+[ext_resource type="PackedScene" uid="uid://bbw062bhibkrw" path="res://Entities/Components/SoundComponent.tscn" id="5_byypb"]
+[ext_resource type="AudioStream" uid="uid://b485l78wb8wi6" path="res://Sounds/gameplayloop.ogg" id="6_gb4ee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8rbpu"]
+size = Vector2(20, 721)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fuudy"]
+size = Vector2(8.99709, 1320)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_s6l7v")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(647, 358)
+rotation = 3.14159
+scale = Vector2(1.32245, 0.739796)
+texture = ExtResource("2_byypb")
+
+[node name="Borders" type="StaticBody2D" parent="."]
+visibility_layer = 15
+
+[node name="r" type="CollisionShape2D" parent="Borders"]
+position = Vector2(-10, 360.25)
+shape = SubResource("RectangleShape2D_8rbpu")
+
+[node name="l" type="CollisionShape2D" parent="Borders"]
+position = Vector2(1290, 360.5)
+shape = SubResource("RectangleShape2D_8rbpu")
+
+[node name="b" type="CollisionShape2D" parent="Borders"]
+position = Vector2(640, 722.5)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_fuudy")
+
+[node name="u" type="CollisionShape2D" parent="Borders"]
+position = Vector2(640, -2)
+rotation = 1.57079
+shape = SubResource("RectangleShape2D_fuudy")
+
+[node name="Player" parent="." instance=ExtResource("3_gb4ee")]
+position = Vector2(610, 588)
+scale = Vector2(0.57, 0.57)
+
+[node name="Ufo" parent="." instance=ExtResource("4_wxqmp")]
+position = Vector2(136, 86)
+
+[node name="UfoSpawnner" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
+
+[node name="SoundComponent" parent="." instance=ExtResource("5_byypb")]
+sound = ExtResource("6_gb4ee")
+
+[connection signal="timeout" from="UfoSpawnner" to="." method="_on_ufo_spawnner_timeout"]

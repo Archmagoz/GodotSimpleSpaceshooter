@@ -1,0 +1,34 @@
+[gd_scene load_steps=6 format=3 uid="uid://bmckykfxqvjen"]
+
+[ext_resource type="Script" uid="uid://crw2ulq7lsfb5" path="res://Entities/Enemy/Ufo/Ufo.gd" id="1_7gtut"]
+[ext_resource type="Texture2D" uid="uid://d0rf8tjc6evq3" path="res://Entities/Enemy/Ufo/Sprite.webp" id="1_h2eth"]
+[ext_resource type="PackedScene" uid="uid://daorq7jfhuira" path="res://Entities/Components/HeathComponent.tscn" id="3_hj0xo"]
+[ext_resource type="PackedScene" uid="uid://cesdgtj3veap" path="res://Entities/Components/SpeedComponent.tscn" id="4_vq4g8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7gtut"]
+radius = 496.983
+
+[node name="Ufo" type="Area2D" node_paths=PackedStringArray("health", "speed")]
+script = ExtResource("1_7gtut")
+health = NodePath("HealthComponent")
+speed = NodePath("SpeedComponent")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.145, 0.145)
+texture = ExtResource("1_h2eth")
+
+[node name="Collision" type="CollisionShape2D" parent="."]
+light_mask = 4
+visibility_layer = 15
+scale = Vector2(0.255925, 0.145)
+shape = SubResource("CircleShape2D_7gtut")
+debug_color = Color(0.978198, 0, 0.398103, 0.42)
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_hj0xo")]
+max_health = 2000
+
+[node name="SpeedComponent" parent="." instance=ExtResource("4_vq4g8")]
+speed_max = 1000.0
+speed_min = 100.0
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

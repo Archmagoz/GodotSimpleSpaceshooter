@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://dd10pasc800ib"]
+
+[ext_resource type="Script" uid="uid://b5ul5re56dsuv" path="res://Entities/Components/BulletComponent.gd" id="1_585dd"]
+[ext_resource type="Texture2D" uid="uid://dfve4e0crfj2r" path="res://Entities/Enemy/Ufo/UfoBullet/Sprite.png" id="2_fk5bd"]
+[ext_resource type="PackedScene" uid="uid://cesdgtj3veap" path="res://Entities/Components/SpeedComponent.tscn" id="3_l0n6l"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fk5bd"]
+radius = 43.0
+height = 228.0
+
+[node name="BulletComponent" type="Node2D" node_paths=PackedStringArray("speed")]
+script = ExtResource("1_585dd")
+speed = NodePath("SpeedComponent")
+damage = 10
+life_time = 2
+metadata/_custom_type_script = "uid://b5ul5re56dsuv"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-2, 2)
+rotation = 1.5708
+scale = Vector2(0.473684, 0.473684)
+texture = ExtResource("2_fk5bd")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(2, 0)
+shape = SubResource("CapsuleShape2D_fk5bd")
+
+[node name="SpeedComponent" parent="." instance=ExtResource("3_l0n6l")]
+speed_max = -500.0
+speed_min = -500.0
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

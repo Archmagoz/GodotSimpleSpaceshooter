@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvsny4v7enbah"]
+
+[ext_resource type="Script" uid="uid://b5ul5re56dsuv" path="res://Entities/Components/BulletComponent.gd" id="1_n8vlj"]
+[ext_resource type="PackedScene" uid="uid://cesdgtj3veap" path="res://Entities/Components/SpeedComponent.tscn" id="3_n8vlj"]
+[ext_resource type="Texture2D" uid="uid://deuxqmppe0778" path="res://Entities/Player/PlayerBullet/Sprite.png" id="4_qyx22"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qyx22"]
+radius = 42.1509
+height = 247.803
+
+[node name="BulletComponent" type="Node2D" node_paths=PackedStringArray("speed")]
+scale = Vector2(0.64, 0.64)
+script = ExtResource("1_n8vlj")
+speed = NodePath("SpeedComponent")
+damage = 200
+life_time = 2
+
+[node name="SpeedComponent" parent="." instance=ExtResource("3_n8vlj")]
+scale = Vector2(0.64, 0.64)
+speed_max = 700.0
+speed_min = 700.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.5226, -33.7726)
+rotation = -1.5708
+scale = Vector2(0.119573, 0.119573)
+texture = ExtResource("4_qyx22")
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-1, 0)
+scale = Vector2(0.64, 0.64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(-0.878906, -56.1524)
+scale = Vector2(0.64, 0.64)
+shape = SubResource("CapsuleShape2D_qyx22")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://rdjtgrytebqs"]
+
+[ext_resource type="Texture2D" uid="uid://cllpt43k8x65j" path="res://Telas/Gameover/Background.jpg" id="1_y7nek"]
+[ext_resource type="PackedScene" uid="uid://bbw062bhibkrw" path="res://Entities/Components/SoundComponent.tscn" id="2_aeb1i"]
+[ext_resource type="AudioStream" uid="uid://bkey00r2igjcc" path="res://Sounds/lost.ogg" id="3_lhxg2"]
+
+[node name="Gameover" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(642, 369)
+scale = Vector2(1.78359, 1.07361)
+texture = ExtResource("1_y7nek")
+
+[node name="SoundComponent" parent="." instance=ExtResource("2_aeb1i")]
+sound = ExtResource("3_lhxg2")

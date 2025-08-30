@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b46lms57gcssb"]
+
+[ext_resource type="Script" uid="uid://bh3t8noybbpun" path="res://Entities/Player/Player.gd" id="1_1des2"]
+[ext_resource type="Texture2D" uid="uid://uh52b3nk7nht" path="res://Entities/Player/Sprite.png" id="2_kyqiw"]
+[ext_resource type="PackedScene" uid="uid://daorq7jfhuira" path="res://Entities/Components/HeathComponent.tscn" id="3_vweq0"]
+[ext_resource type="PackedScene" uid="uid://cesdgtj3veap" path="res://Entities/Components/SpeedComponent.tscn" id="4_1des2"]
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("health", "speed")]
+motion_mode = 1
+wall_min_slide_angle = 1.5708
+script = ExtResource("1_1des2")
+health = NodePath("HealthComponent")
+speed = NodePath("SpeedComponent")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(0.591797, 0.591797)
+texture = ExtResource("2_kyqiw")
+
+[node name="CollisionPolygon" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -145, 8, -143, 15, -137, 22, -124, 27, -102, 30, -83, 31, -58, 51, -46, 51, -54, 74, -54, 74, -32, 87, -24, 88, -35, 111, -35, 111, -11, 150, 12, 152, 40, -152, 40, -150, 12, -111, -11, -111, -35, -89, -35, -87, -24, -74, -32, -73, -54, -51, -54, -51, -46, -31, -58, -30, -82, -28, -101, -22, -125, -14, -138, -5, -144)
+
+[node name="HealthComponent" parent="." instance=ExtResource("3_vweq0")]
+max_health = 50
+
+[node name="SpeedComponent" parent="." instance=ExtResource("4_1des2")]
+speed_max = 500.0
+speed_min = 1000.0
+
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

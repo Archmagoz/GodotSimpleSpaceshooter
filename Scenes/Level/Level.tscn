@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ccdv4hdpt3ild"]
 
-[ext_resource type="Script" uid="uid://bvkpy707ynjhu" path="res://Telas/Level/Level.gd" id="1_s6l7v"]
-[ext_resource type="Texture2D" uid="uid://bi1vk68ngreyx" path="res://Telas/Level/Background.jpg" id="2_byypb"]
+[ext_resource type="Script" uid="uid://bvkpy707ynjhu" path="res://Scenes/Level/Level.gd" id="1_s6l7v"]
+[ext_resource type="Texture2D" uid="uid://bi1vk68ngreyx" path="res://Scenes/Level/Background.jpg" id="2_byypb"]
 [ext_resource type="PackedScene" uid="uid://b46lms57gcssb" path="res://Entities/Player/Player.tscn" id="3_gb4ee"]
 [ext_resource type="PackedScene" uid="uid://bmckykfxqvjen" path="res://Entities/Enemy/Ufo/Ufo.tscn" id="4_wxqmp"]
 [ext_resource type="PackedScene" uid="uid://bbw062bhibkrw" path="res://Entities/Components/SoundComponent.tscn" id="5_byypb"]

@@ -26,4 +26,4 @@ max_health = 50
 speed_max = 500.0
 speed_min = 1000.0
 
-[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]
+[connection signal="died" from="HealthComponent" to="." method="_on_player_died"]

@@ -24,5 +24,5 @@ func damage(amount: int) -> void:
 	self.health -= amount
 	
 	if self.health < 0:
-		emit_signal("died")
 		get_parent().queue_free()
+		emit_signal("died")

@@ -20,9 +20,6 @@ func _ready() -> void:
 	fire_rate = 5.0
 	w_size = get_viewport_rect().size
 	position = Vector2(float(w_size.x / 2), float(w_size.y / 1.3))
-	
-	# died signal from HealthComponent
-	health.connect("died", Callable(self, "_on_player_died"))
 
 	# Shoot firerate timer
 	can_shoot = true
@@ -62,6 +59,8 @@ func shoot() -> void:
 	get_parent().add_child(bullet_instance)
 	can_shoot = false
 
-# This is dark souls
 func _on_player_died() -> void:
-	get_tree().change_scene_to_packed(load("res://Telas/Gameover/Gameover.tscn"))
+	call_deferred("_die")
+
+func _die() -> void:
+	get_tree().change_scene_to_packed(load("res://Scenes/Gameover/Gameover.tscn"))

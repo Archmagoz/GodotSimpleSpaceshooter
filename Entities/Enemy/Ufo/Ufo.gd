@@ -46,3 +46,6 @@ func _on_fire_timeout() -> void:
 	var bullet_instance: Object = bullet_scene.instantiate()
 	bullet_instance.set_position(position)
 	get_parent().add_child(bullet_instance)
+
+func _on_ufo_died() -> void:
+	pass

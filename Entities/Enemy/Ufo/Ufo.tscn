@@ -32,3 +32,4 @@ speed_max = 1000.0
 speed_min = 100.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="died" from="HealthComponent" to="." method="_on_ufo_died"]

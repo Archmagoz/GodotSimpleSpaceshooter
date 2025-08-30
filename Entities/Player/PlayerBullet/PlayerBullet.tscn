@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cvsny4v7enbah"]
+[gd_scene load_steps=7 format=3 uid="uid://cvsny4v7enbah"]
 
 [ext_resource type="Script" uid="uid://b5ul5re56dsuv" path="res://Entities/Components/BulletComponent.gd" id="1_n8vlj"]
 [ext_resource type="PackedScene" uid="uid://cesdgtj3veap" path="res://Entities/Components/SpeedComponent.tscn" id="3_n8vlj"]
+[ext_resource type="PackedScene" uid="uid://bbw062bhibkrw" path="res://Entities/Components/SoundComponent.tscn" id="4_07j3w"]
 [ext_resource type="Texture2D" uid="uid://deuxqmppe0778" path="res://Entities/Player/PlayerBullet/Sprite.png" id="4_qyx22"]
+[ext_resource type="AudioStream" uid="uid://bqvurtlonu68d" path="res://Sounds/PlayerShoot.ogg" id="5_07j3w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qyx22"]
 radius = 42.1509
@@ -34,5 +36,9 @@ scale = Vector2(0.64, 0.64)
 position = Vector2(-0.878906, -56.1524)
 scale = Vector2(0.64, 0.64)
 shape = SubResource("CapsuleShape2D_qyx22")
+
+[node name="SoundComponent" parent="." instance=ExtResource("4_07j3w")]
+sound = ExtResource("5_07j3w")
+volume = 0.1
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

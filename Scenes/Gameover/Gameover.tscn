@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cllpt43k8x65j" path="res://Scenes/Gameover/Background.jpg" id="1_y7nek"]
 [ext_resource type="PackedScene" uid="uid://bbw062bhibkrw" path="res://Entities/Components/SoundComponent.tscn" id="2_aeb1i"]
-[ext_resource type="AudioStream" uid="uid://bkey00r2igjcc" path="res://Sounds/lost.ogg" id="3_lhxg2"]
+[ext_resource type="AudioStream" uid="uid://bkey00r2igjcc" path="res://Sounds/Lost.ogg" id="3_lhxg2"]
 
 [node name="Gameover" type="Area2D"]
 
@@ -13,3 +13,4 @@ texture = ExtResource("1_y7nek")
 
 [node name="SoundComponent" parent="." instance=ExtResource("2_aeb1i")]
 sound = ExtResource("3_lhxg2")
+volume = 0.5

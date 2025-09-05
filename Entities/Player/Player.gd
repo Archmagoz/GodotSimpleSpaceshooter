@@ -40,8 +40,7 @@ func _process(_delta: float) -> void:
 	else:
 		speed.set_speed(500)
 
-	if Input.is_action_pressed("j"):
-		if can_shoot:
+	if Input.is_action_pressed("j") and can_shoot:
 			shoot()
 
 	# Player moviment apply
@@ -63,4 +62,5 @@ func _on_player_died() -> void:
 	call_deferred("_die")
 
 func _die() -> void:
+	queue_free()
 	get_tree().change_scene_to_packed(load("res://Scenes/Gameover/Gameover.tscn"))

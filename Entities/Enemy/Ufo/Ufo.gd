@@ -48,4 +48,4 @@ func _on_fire_timeout() -> void:
 	get_parent().add_child(bullet_instance)
 
 func _on_ufo_died() -> void:
-	pass
+	queue_free()

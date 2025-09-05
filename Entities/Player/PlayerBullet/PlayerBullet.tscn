@@ -7,7 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://bqvurtlonu68d" path="res://Sounds/PlayerShoot.ogg" id="5_07j3w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qyx22"]
-radius = 42.1509
+radius = 49.5911
 height = 247.803
 
 [node name="BulletComponent" type="Node2D" node_paths=PackedStringArray("speed")]

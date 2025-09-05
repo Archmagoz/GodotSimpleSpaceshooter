@@ -23,6 +23,5 @@ func get_health() -> int:
 func damage(amount: int) -> void:
 	self.health -= amount
 	
-	if self.health < 0:
-		get_parent().queue_free()
+	if self.health <= 0:
 		emit_signal("died")

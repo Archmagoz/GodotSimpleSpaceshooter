@@ -12,7 +12,6 @@ config_version=5
 
 config/name="Spaceshooter"
 config/description="Pow pow pow"
-config/version="1.3"
 run/main_scene="uid://ccdv4hdpt3ild"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://ceqc88xiy6x4h"

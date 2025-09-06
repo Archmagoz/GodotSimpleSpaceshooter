@@ -1,6 +1,7 @@
 android/
 .vscode/
 .vs/
+.rc/
 .godot/
 .import/
 .mono/

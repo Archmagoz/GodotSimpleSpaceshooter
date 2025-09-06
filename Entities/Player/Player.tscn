@@ -17,6 +17,7 @@ scale = Vector2(0.591797, 0.591797)
 texture = ExtResource("2_kyqiw")
 
 [node name="CollisionPolygon" type="CollisionPolygon2D" parent="."]
+build_mode = 1
 polygon = PackedVector2Array(0, -145, 8, -143, 15, -137, 22, -124, 27, -102, 30, -83, 31, -58, 51, -46, 51, -54, 74, -54, 74, -32, 87, -24, 88, -35, 111, -35, 111, -11, 150, 12, 152, 40, -152, 40, -150, 12, -111, -11, -111, -35, -89, -35, -87, -24, -74, -32, -73, -54, -51, -54, -51, -46, -31, -58, -30, -82, -28, -101, -22, -125, -14, -138, -5, -144)
 
 [node name="HealthComponent" parent="." instance=ExtResource("3_vweq0")]

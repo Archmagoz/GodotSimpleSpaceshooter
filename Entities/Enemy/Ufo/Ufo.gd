@@ -1,7 +1,7 @@
 extends Area2D
 
 # Ufo load shoot scene
-var bullet_scene: PackedScene = preload("res://Entities/Enemy/Ufo/UfoBullet/UfoBullet.tscn")
+const BULLET_SCENE: PackedScene = preload("res://Entities/Enemy/Ufo/UfoBullet/UfoBullet.tscn")
 
 # Ufo stats
 @export var health: HealthComponent
@@ -43,7 +43,7 @@ func _process(_delta: float) -> void:
 # Firerate function callof
 func _on_fire_timeout() -> void:
 	fire_timer.wait_time = randf_range(0.5, 2.0)
-	var bullet_instance: Object = bullet_scene.instantiate()
+	var bullet_instance: Object = BULLET_SCENE.instantiate()
 	bullet_instance.set_position(position)
 	get_parent().add_child(bullet_instance)
 

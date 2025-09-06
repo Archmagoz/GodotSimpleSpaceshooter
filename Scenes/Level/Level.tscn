@@ -50,12 +50,12 @@ scale = Vector2(0.57, 0.57)
 [node name="Ufo" parent="." instance=ExtResource("4_wxqmp")]
 position = Vector2(136, 86)
 
-[node name="UfoSpawnner" type="Timer" parent="."]
-wait_time = 5.0
-autostart = true
-
 [node name="SoundComponent" parent="." instance=ExtResource("5_byypb")]
 sound = ExtResource("6_gb4ee")
 volume = 0.5
+
+[node name="UfoSpawnner" type="Timer" parent="."]
+wait_time = 5.0
+autostart = true
 
 [connection signal="timeout" from="UfoSpawnner" to="." method="_on_ufo_spawnner_timeout"]

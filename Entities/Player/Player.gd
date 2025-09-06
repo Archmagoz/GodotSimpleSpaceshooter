@@ -1,5 +1,9 @@
 extends CharacterBody2D
 
+# Preload Scenes
+const GAMEOVER_SCENE: PackedScene = preload("res://Scenes/Gameover/Gameover.tscn")
+const BULLET_SCENE: PackedScene = preload("res://Entities/Player/PlayerBullet/PlayerBullet.tscn")
+
 # Player status
 @export var health: HealthComponent
 @export var speed: SpeedComponent
@@ -10,9 +14,6 @@ var direction: Vector2
 var fire_rate: float
 var can_shoot: bool
 var shoot_timer: Timer
-
-# Load bullet scene
-var bullet_scene: PackedScene = preload("res://Entities/Player/PlayerBullet/PlayerBullet.tscn")
 
 # Run init
 func _ready() -> void:
@@ -34,7 +35,8 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	# Player inputs control
 	direction = Input.get_vector("left", "right", "up", "down")
-
+	
+	# Speed control
 	if Input.is_action_pressed("shift"):
 		speed.set_speed(1000)
 	else:
@@ -53,7 +55,7 @@ func _on_shoot_timer_timeout() -> void:
 
 # shoot and reset
 func shoot() -> void:
-	var bullet_instance: Object = bullet_scene.instantiate()
+	var bullet_instance: Object = BULLET_SCENE.instantiate()
 	bullet_instance.set_position(position)
 	get_parent().add_child(bullet_instance)
 	can_shoot = false
@@ -63,4 +65,4 @@ func _on_player_died() -> void:
 
 func _die() -> void:
 	queue_free()
-	get_tree().change_scene_to_packed(load("res://Scenes/Gameover/Gameover.tscn"))
+	get_tree().change_scene_to_packed(GAMEOVER_SCENE)

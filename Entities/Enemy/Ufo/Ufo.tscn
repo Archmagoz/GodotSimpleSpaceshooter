@@ -29,7 +29,7 @@ max_health = 2000
 
 [node name="SpeedComponent" parent="." instance=ExtResource("4_vq4g8")]
 speed_max = 1000.0
-speed_min = 100.0
+speed_min = 200.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="died" from="HealthComponent" to="." method="_on_ufo_died"]

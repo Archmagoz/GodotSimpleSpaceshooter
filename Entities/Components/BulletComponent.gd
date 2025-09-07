@@ -1,5 +1,4 @@
 extends Node2D
-
 class_name BulletComponent
 
 # Set on godot
@@ -27,7 +26,7 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 			queue_free()
 
 # Travel and despaw
-func _process(_delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	position.y -= speed.get_speed() * _delta
 
 	time_alive += _delta

@@ -9,43 +9,42 @@ const BULLET_SCENE: PackedScene = preload("res://Entities/Enemy/Ufo/UfoBullet/Uf
 
 # Logic/util variables
 var w_size: Vector2
-var direction: int
+var direction: int = 1
 var fire_timer: Timer
 
-# Run init
 func _ready() -> void:
-	# Variable init
+	# Init position
 	w_size = DisplayServer.window_get_size()
-	position.x = float(w_size.x / 2)
-	position.y = float(w_size.y / 7)
-	direction = 1
+	position = Vector2(w_size.x / 2.0, w_size.y / 7.0)
 	
 	# Random firerate
 	fire_timer = Timer.new()
-	fire_timer.wait_time = randf_range(0.5, 2.0)
+	_set_random_fire_rate()
 	fire_timer.one_shot = false
+	fire_timer.timeout.connect(_on_fire_timeout)
 	add_child(fire_timer)
-	fire_timer.connect("timeout", Callable(self, "_on_fire_timeout"))
 	fire_timer.start()
 
-# Check collision with level borders
+func _physics_process(delta: float) -> void:
+	# Acceleration
+	if speed.get_speed() < speed.get_speed_max():
+		speed.speed_inc(100, delta)
+
+	# Move UFO
+	position += Vector2.RIGHT * direction * speed.get_speed() * delta
+
 func _on_body_entered(body: Node2D) -> void:
 	if body.name == "Borders":
 		direction *= -1
 
-# Run every frame
-func _process(_delta: float) -> void:
-	if speed.get_speed() < speed.get_speed_max():
-		speed.speed_inc(100, _delta)
-
-	position += Vector2.RIGHT * direction * speed.get_speed() * _delta
-
-# Firerate function callof
 func _on_fire_timeout() -> void:
-	fire_timer.wait_time = randf_range(0.5, 2.0)
+	_set_random_fire_rate()
 	var bullet_instance: Object = BULLET_SCENE.instantiate()
-	bullet_instance.set_position(position)
-	get_parent().add_child(bullet_instance)
+	bullet_instance.position = position
+	get_tree().current_scene.add_child(bullet_instance)
+
+func _set_random_fire_rate() -> void:
+	fire_timer.wait_time = randf_range(0.2, 2.0)
 
 func _on_ufo_died() -> void:
 	queue_free()

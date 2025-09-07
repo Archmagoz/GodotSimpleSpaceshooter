@@ -17,11 +17,6 @@ speed = NodePath("SpeedComponent")
 damage = 200
 life_time = 2
 
-[node name="SpeedComponent" parent="." instance=ExtResource("3_n8vlj")]
-scale = Vector2(0.64, 0.64)
-speed_max = 700.0
-speed_min = 700.0
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(2.5226, -33.7726)
 rotation = -1.5708
@@ -40,5 +35,10 @@ shape = SubResource("CapsuleShape2D_qyx22")
 [node name="SoundComponent" parent="." instance=ExtResource("4_07j3w")]
 sound = ExtResource("5_07j3w")
 volume = 0.1
+
+[node name="SpeedComponent" parent="." instance=ExtResource("3_n8vlj")]
+scale = Vector2(0.64, 0.64)
+speed_max = 700.0
+speed_min = 700.0
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://cvsny4v7enbah"]
 
-[ext_resource type="Script" uid="uid://b5ul5re56dsuv" path="res://Entities/Components/BulletComponent.gd" id="1_n8vlj"]
+[ext_resource type="Script" uid="uid://cnu8wv1t20let" path="res://Entities/Components/BulletComponent.gd" id="1_n8vlj"]
 [ext_resource type="PackedScene" uid="uid://cesdgtj3veap" path="res://Entities/Components/SpeedComponent.tscn" id="3_n8vlj"]
 [ext_resource type="PackedScene" uid="uid://bbw062bhibkrw" path="res://Entities/Components/SoundComponent.tscn" id="4_07j3w"]
-[ext_resource type="Texture2D" uid="uid://deuxqmppe0778" path="res://Entities/Player/PlayerBullet/Sprite.png" id="4_qyx22"]
-[ext_resource type="AudioStream" uid="uid://bqvurtlonu68d" path="res://Sounds/PlayerShoot.ogg" id="5_07j3w"]
+[ext_resource type="Texture2D" uid="uid://dbc2ybxafvi1q" path="res://Entities/Player/PlayerBullet/Sprite.png" id="4_qyx22"]
+[ext_resource type="AudioStream" uid="uid://06ip8kc5h33c" path="res://Sounds/PlayerShoot.ogg" id="5_07j3w"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qyx22"]
 radius = 49.5911

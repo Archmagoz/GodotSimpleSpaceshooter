@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmckykfxqvjen"]
 
-[ext_resource type="Script" uid="uid://crw2ulq7lsfb5" path="res://Entities/Enemy/Ufo/Ufo.gd" id="1_7gtut"]
-[ext_resource type="Texture2D" uid="uid://d0rf8tjc6evq3" path="res://Entities/Enemy/Ufo/Sprite.webp" id="1_h2eth"]
+[ext_resource type="Script" uid="uid://b8ll8wlm5u64t" path="res://Entities/Enemy/Ufo/Ufo.gd" id="1_7gtut"]
+[ext_resource type="Texture2D" uid="uid://frnbrkwlf3yn" path="res://Entities/Enemy/Ufo/Sprite.webp" id="1_h2eth"]
 [ext_resource type="PackedScene" uid="uid://daorq7jfhuira" path="res://Entities/Components/HeathComponent.tscn" id="3_hj0xo"]
 [ext_resource type="PackedScene" uid="uid://cesdgtj3veap" path="res://Entities/Components/SpeedComponent.tscn" id="4_vq4g8"]
 

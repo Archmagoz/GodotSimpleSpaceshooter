@@ -1,11 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://ccdv4hdpt3ild"]
 
-[ext_resource type="Script" uid="uid://bvkpy707ynjhu" path="res://Scenes/Level/Level.gd" id="1_s6l7v"]
-[ext_resource type="Texture2D" uid="uid://uhhv37in56vv" path="res://Scenes/Level/Background.jpg" id="2_ksici"]
+[ext_resource type="Script" uid="uid://beo1mbihgwrk3" path="res://Scenes/Level/Level.gd" id="1_s6l7v"]
+[ext_resource type="Texture2D" uid="uid://cklslf6xohusj" path="res://Scenes/Level/Background.jpg" id="2_ksici"]
 [ext_resource type="PackedScene" uid="uid://b46lms57gcssb" path="res://Entities/Player/Player.tscn" id="3_gb4ee"]
 [ext_resource type="PackedScene" uid="uid://bmckykfxqvjen" path="res://Entities/Enemy/Ufo/Ufo.tscn" id="4_wxqmp"]
 [ext_resource type="PackedScene" uid="uid://bbw062bhibkrw" path="res://Entities/Components/SoundComponent.tscn" id="5_byypb"]
-[ext_resource type="AudioStream" uid="uid://b485l78wb8wi6" path="res://Sounds/GameplayLoop.ogg" id="6_gb4ee"]
+[ext_resource type="AudioStream" uid="uid://drdqppymm5x0f" path="res://Sounds/gameplayloop.ogg" id="6_gb4ee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8rbpu"]
 size = Vector2(20, 721)

@@ -14,7 +14,7 @@ config/name="Spaceshooter"
 config/description="Pow pow pow"
 run/main_scene="uid://ccdv4hdpt3ild"
 config/features=PackedStringArray("4.4", "Forward Plus")
-config/icon="uid://ceqc88xiy6x4h"
+config/icon="uid://umr48g5syjsq"
 
 [debug]
 

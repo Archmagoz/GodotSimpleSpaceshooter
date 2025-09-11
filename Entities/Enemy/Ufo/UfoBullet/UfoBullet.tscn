@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dd10pasc800ib"]
 
-[ext_resource type="Script" uid="uid://b5ul5re56dsuv" path="res://Entities/Components/BulletComponent.gd" id="1_585dd"]
-[ext_resource type="Texture2D" uid="uid://dfve4e0crfj2r" path="res://Entities/Enemy/Ufo/UfoBullet/Sprite.png" id="2_fk5bd"]
+[ext_resource type="Script" uid="uid://cnu8wv1t20let" path="res://Entities/Components/BulletComponent.gd" id="1_585dd"]
+[ext_resource type="Texture2D" uid="uid://dbvjle40wg078" path="res://Entities/Enemy/Ufo/UfoBullet/Sprite.png" id="2_fk5bd"]
 [ext_resource type="PackedScene" uid="uid://cesdgtj3veap" path="res://Entities/Components/SpeedComponent.tscn" id="3_l0n6l"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fk5bd"]

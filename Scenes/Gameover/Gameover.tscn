@@ -1,16 +1,52 @@
-[gd_scene load_steps=4 format=3 uid="uid://rdjtgrytebqs"]
+[gd_scene load_steps=5 format=3 uid="uid://rdjtgrytebqs"]
 
-[ext_resource type="Texture2D" uid="uid://bx14bfg36xlja" path="res://Scenes/Gameover/Background.jpg" id="1_y7nek"]
+[ext_resource type="Script" uid="uid://cchgm1tck8pcf" path="res://Scenes/Gameover/Gameover.gd" id="1_m0rlf"]
 [ext_resource type="PackedScene" uid="uid://bbw062bhibkrw" path="res://Entities/Components/SoundComponent.tscn" id="2_aeb1i"]
 [ext_resource type="AudioStream" uid="uid://cqvrb1hbf3j8b" path="res://Sounds/lost.ogg" id="3_lhxg2"]
 
-[node name="Gameover" type="Area2D"]
+[sub_resource type="CurveXYZTexture" id="CurveXYZTexture_y8k8l"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(642, 369)
-scale = Vector2(1.78359, 1.07361)
-texture = ExtResource("1_y7nek")
+[node name="Gameover" type="Node2D"]
+script = ExtResource("1_m0rlf")
 
 [node name="SoundComponent" parent="." instance=ExtResource("2_aeb1i")]
 sound = ExtResource("3_lhxg2")
 volume = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(639, 350)
+scale = Vector2(5.90802, 821.339)
+texture = SubResource("CurveXYZTexture_y8k8l")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 199.0
+offset_top = 64.0
+offset_right = 524.0
+offset_bottom = 248.0
+scale = Vector2(2.89617, 3.54965)
+text = "VOCÊ MORREU!
+
+TENTAR DE NOVO?"
+horizontal_alignment = 1
+
+[node name="Yes" type="Button" parent="."]
+offset_left = 158.0
+offset_top = 525.0
+offset_right = 195.0
+offset_bottom = 556.0
+scale = Vector2(8.64845, 4.93018)
+text = "SIM"
+flat = true
+
+[node name="No" type="Button" parent="."]
+offset_left = 861.0
+offset_top = 513.0
+offset_right = 967.0
+offset_bottom = 567.0
+scale = Vector2(3.44207, 2.77289)
+text = "SOU
+MOLESTADO"
+flat = true
+
+[connection signal="pressed" from="Yes" to="." method="_on_yes_pressed"]
+[connection signal="pressed" from="No" to="." method="_on_no_pressed"]

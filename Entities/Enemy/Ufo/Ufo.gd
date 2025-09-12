@@ -8,14 +8,12 @@ const BULLET_SCENE: PackedScene = preload("res://Entities/Enemy/Ufo/UfoBullet/Uf
 @export var speed: SpeedComponent
 
 # Logic/util variables
-var w_size: Vector2
 var direction: int = 1
 var fire_timer: Timer
 
 func _ready() -> void:
 	# Init position
-	w_size = DisplayServer.window_get_size()
-	position = Vector2(w_size.x / 2.0, w_size.y / 7.0)
+	position = Vector2(Game.w_size.x / 2.0, Game.w_size.y / 7.0)
 	
 	# Random firerate
 	fire_timer = Timer.new()

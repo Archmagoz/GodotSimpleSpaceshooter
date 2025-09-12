@@ -1,7 +1,6 @@
 extends CharacterBody2D
 
 # Preload Scenes
-const GAMEOVER_SCENE: PackedScene = preload("res://Scenes/Gameover/Gameover.tscn")
 const BULLET_SCENE: PackedScene = preload("res://Entities/Player/PlayerBullet/PlayerBullet.tscn")
 
 # Player status
@@ -9,9 +8,9 @@ const BULLET_SCENE: PackedScene = preload("res://Entities/Player/PlayerBullet/Pl
 @export var speed: SpeedComponent
 
 # Logic/util variables
+var tree: SceneTree
 var fire_rate: float = 5.0
 var can_shoot: bool = true
-var w_size: Vector2
 var direction: Vector2
 var shoot_timer: Timer
 var current_speed: float
@@ -19,8 +18,7 @@ var current_speed: float
 # Function call on object instanciate
 func _ready() -> void:
 	# Init position
-	w_size = get_viewport_rect().size
-	position = Vector2(w_size.x / 2.0, w_size.y / 1.3)
+	position = Vector2(Game.w_size.x / 2.0, Game.w_size.y / 1.3)
 	current_speed = speed.get_speed()
 
 	# Shoot firerate timer
@@ -30,6 +28,8 @@ func _ready() -> void:
 	shoot_timer.timeout.connect(_on_shoot_timer_timeout)
 	add_child(shoot_timer)
 	shoot_timer.start()
+	
+	tree = get_tree()
 
 # Run every frame
 func _physics_process(_delta: float) -> void:
@@ -63,5 +63,4 @@ func _on_player_died() -> void:
 	call_deferred("_die")
 
 func _die() -> void:
-	queue_free()
-	get_tree().change_scene_to_packed(GAMEOVER_SCENE)
+	Game.gameover(tree)
